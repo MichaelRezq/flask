@@ -1,0 +1,15 @@
+{% macro render_list_tuple(list) %}
+    {% for post in posts %}
+       <a class="text-decoration-none my-3" href="{{ url_for("post_detail",id=post.id) }}">
+            <div  class=" shadow-sm p-3 mb-5 bg-body-tertiary rounded position-relative ">
+                <h3 class="text-primary">  {{post.title}}</h3>
+                 <div class="position-absolute top-0 end-0  ">
+                     <a href="{{ url_for("post_delete",id=post.id) }}" class="btn btn-light rounded-circle" >X</a>
+                 </div>
+                <img  class="img-fluid" src="{{url_for('static',filename='images/pexels-eric-mufasa-1350789_6w5liBR.jpg')}}" />
+<!--                <img src="{{url_for('static',filename='images/{{post.image}}')}}" />-->
+                <p class="text-secondary my-3 "> {{post.body}}</p>
+            </div>
+        </a>
+    {% endfor %}
+{% endmacro %}
